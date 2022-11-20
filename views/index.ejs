@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+
+    <% if (blogs.length > 0) { %>
+        <!-- added i to for number labeling -->
+        <% blogs.forEach((blog, i) => { %>
+            <% i++ %>
+            <div class="blog-content">
+                <!-- go to /blogs/:id when title clicked -->
+                <a href="/blogs/<%= blog._id %>">
+                    <h3 class="blog-title"><%= i %>. <%= blog.title %></h3>
+                </a>
+                <h4 class="blog-snippet"><%= blog.snippet %></h4>
+                <p class="blog-body"><%= blog.body %></p>
+            </div>
+        <% }) %>    
+    <% } else {%>
+        <p>No blogs yet....</p>
+    <% } %>
+
+    <%- include("./partials/footer.ejs") %>
+</body>
