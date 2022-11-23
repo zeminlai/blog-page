@@ -7,7 +7,8 @@ const blogRoutes = require("./routes/blogRoutes");
 const app = express();
 
 // connect to mongodb
-const dbURI = "mongodb+srv://admin:laizemin426@cluster0.lap7tws.mongodb.net/test?retryWrites=true&w=majority";
+// change the password!!!
+const dbURI = "mongodb+srv://admin:<password>@cluster0.lap7tws.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(dbURI)
     // listen to port 8080 if connected to db
     .then(console.log("connected to database"))
@@ -39,4 +40,5 @@ app.get("/about", (req, res) => {
 app.use((req, res) => {
     res.status(404).render("404", { title: "404" });
 })
+
 
